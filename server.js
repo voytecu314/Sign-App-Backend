@@ -10,7 +10,18 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 
-app.listen(port,(err)=>{
-    if(err) console.log(err.message)
-    else console.log('Listening on port ', port);
-});
+mongoose
+  .connect(process.env.CONNECTION_URL)
+  .then(
+    app.listen(port, () =>
+      console.log(
+        "Database and Server listening on port:", port
+      )
+    )
+  )
+  .catch((err) => console.log(err));
+
+//http://localhost:5000/
+app.get('/', (req,res) => {
+    res.send('Hi there')
+})
