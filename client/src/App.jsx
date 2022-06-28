@@ -1,11 +1,23 @@
-
 import './App.css';
 import FileBase64 from 'react-file-base64'
 import {useState} from 'react'
 
 function App() {
   const [image, setImage] = useState("");
-
+console.log(image);
+  const uploadVid = (e) => {
+    fetch('http://localhost:5000/upload-file', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        fileName: e.target.previousSibling.value,
+        data: image
+      })
+    })
+    .then(res=>res.json())
+    .then(console.log)
+    .catch(console.log);
+  }
 
   return (
     <div className="App">
@@ -20,19 +32,18 @@ function App() {
           <br></br>
           <input type="submit" value="Login" />
       </form>
-      <form action="http://localhost:5000/upload-file" method="post">
         <h3>Please insert an image</h3>
-        <input type="text" name='fileName' />
       <FileBase64 
          multiple={false}
          onDone={({ base64 }) => {
            setImage(base64);
          }}
       />
-      <input type="submit" value="upload" />
-      </form>
-
+    <input type="text" name="fileName" />
+    <button onClick={uploadVid}>Upload to DB</button>
+    <img src={image} alt="egtr" />
     </div>
+    
   );
 }
 
