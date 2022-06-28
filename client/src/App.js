@@ -20,13 +20,17 @@ function App() {
           <br></br>
           <input type="submit" value="Login" />
       </form>
+      <form action="http://localhost:5000/upload-file" method="post">
         <h3>Please insert an image</h3>
+        <input type="text" name='fileName' />
       <FileBase64 
          multiple={false}
          onDone={({ base64 }) => {
            setImage(base64);
          }}
       />
+      <input type="submit" value="upload" />
+      </form>
 
     </div>
   );
