@@ -2,7 +2,8 @@ import express from  'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from  'mongoose';
-import loginRoutes from '../routes/loginRoutes.js';
+import loginRoutes from './routes/loginRoutes.js'
+import filesRoutes from './routes/filesRoutes.js'
 
 const app = express();
 dotenv.config();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
 app.use('/', loginRoutes);
+app.use('/', filesRoutes);
 
 mongoose
   .connect(process.env.CONNECTION_URL)
