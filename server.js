@@ -2,12 +2,15 @@ import express from  'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from  'mongoose';
+import testController from './controllers/testController.js'
 
 const app = express();
 dotenv.config();
 
 const port = process.env.PORT || 5000;
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(cors());
 
 mongoose
@@ -25,3 +28,5 @@ mongoose
 app.get('/', (req,res) => {
     res.send('Hi there')
 })
+
+app.post('/test', testController);
