@@ -18,7 +18,7 @@ function App() {
         <Route path='/videos/upload/contact' element={<ContactForm />} />
         </Routes>
         <br /><br /><br />
-        <h5>Back home: <Link to='/'>Home: <span>&#9166;</span> </Link></h5>
+        <Link to='/'><h5>Back home: <span>&#9166;</span></h5> </Link>
         
       </div>
     </Router>
