@@ -1,22 +1,31 @@
 import './App.css';
+import axios from 'axios';
 import FileBase64 from 'react-file-base64'
 import {useState} from 'react'
 
 function App() {
-  const [image, setImage] = useState("");
-console.log(image);
+  const [video, setVideo] = useState("");
+console.log(video);
+
+const fetchVideos = () => {
+  fetch('http://localhost:5000/get-videos')
+  .then(res=>res.json())
+  .then(console.log)
+  .catch(console.log);
+}
+
   const uploadVid = (e) => {
-    fetch('http://localhost:5000/upload-file', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        fileName: e.target.previousSibling.value,
-        data: image
-      })
-    })
-    .then(res=>res.json())
+
+    const data = {
+      fileName: e.target.previousSibling.value,
+      data: video
+    };
+
+    console.log(data);
+
+    axios.post('http://localhost:5000/upload-file', data)
     .then(console.log)
-    .catch(console.log);
+    .catch(err=>console.log('E!',err));
   }
 
   return (
@@ -32,16 +41,28 @@ console.log(image);
           <br></br>
           <input type="submit" value="Login" />
       </form>
-        <h3>Please insert an image</h3>
+        <h3>Please insert an video</h3>
       <FileBase64 
          multiple={false}
          onDone={({ base64 }) => {
-           setImage(base64);
+           setVideo(base64);
          }}
       />
     <input type="text" name="fileName" />
     <button onClick={uploadVid}>Upload to DB</button>
-    <img src={image} alt="egtr" />
+
+    <video width="400" controls>
+      <source type="video/mp4" src={video}></source>
+      Your browser does not support HTML video.
+    </video>
+
+    <button onClick={fetchVideos}>FetchALL</button>
+
+    <form action="http://localhost:5000/get-video" method="post">
+      <input type="text" name="fileName" /> <input type="submit" value="fetchOne"/>
+    </form>
+    
+
     </div>
     
   );
