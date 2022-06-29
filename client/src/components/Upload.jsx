@@ -1,6 +1,6 @@
-import FileBase64 from 'react-file-base64'
+import FileBase64 from 'react-file-base64';
 import axios from 'axios';
-import {useState} from 'react'
+import {useState} from 'react';
 
 const Upload = () => {
     const [video, setVideo] = useState("");
