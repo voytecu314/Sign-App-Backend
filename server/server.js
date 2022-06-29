@@ -5,6 +5,7 @@ import mongoose from  'mongoose';
 import loginRoutes from './routes/loginRoutes.js'
 import filesRoutes from './routes/filesRoutes.js'
 import getVideos from './routes/getVideos.js'
+import contactForm from './routes/contactRoutes.js'
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/', loginRoutes);
 app.use('/', filesRoutes);
 app.use('/', getVideos);
+app.use('/', contactForm);
 
 mongoose
   .connect(process.env.CONNECTION_URL)
