@@ -14,8 +14,6 @@ const GetVids = () => {
         .catch(console.log);
       }
 
-      console.log(data);
-
   return (<>
     <button onClick={fetchVideos}>FetchALL</button>
 
@@ -25,7 +23,7 @@ const GetVids = () => {
 
     <button onClick={()=>navigate('upload')}>Upload videos to Database</button>
 
-    {data && data.map((video,i)=><div key={i}>
+    {data && data.reverse().map((video,i)=><div key={i}>
                                     <p>{video.fileName}</p>
                                     <video width="400" controls>
                                       <source type="video/mp4" src={video.data}></source>

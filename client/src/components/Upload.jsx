@@ -1,10 +1,14 @@
 import FileBase64 from 'react-file-base64';
 import axios from 'axios';
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Upload = () => {
+    
     const [video, setVideo] = useState("");
-    console.log(video);
+
+    const navigate = useNavigate();
+    
     const uploadVid = (e) => {
 
         const data = {
@@ -29,7 +33,8 @@ const Upload = () => {
       />
     <input type="text" name="fileName" />
     <button onClick={uploadVid}>Upload to DB</button>
-
+    <h5>Problems?</h5>
+    <button onClick={()=>navigate('contact')}>Contact us</button>
   </>)
 }
 
