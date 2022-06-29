@@ -30,12 +30,6 @@ const Upload = () => {
     <input type="text" name="fileName" />
     <button onClick={uploadVid}>Upload to DB</button>
 
-
-    <video width="400" controls>
-      <source type="video/mp4" src={video}></source>
-      Your browser does not support HTML video.
-    </video>
-
   </>)
 }
 
