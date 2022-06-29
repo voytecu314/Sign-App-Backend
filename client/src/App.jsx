@@ -1,5 +1,6 @@
 import './App.css';
-import Signup from './components/Signup';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignOrLogin from './components/SignOrLogin';
 import Upload from './components/Upload';
 import GetVids from './components/GetVids';
 import ContactForm from './components/ContactForm';
@@ -8,15 +9,17 @@ function App() {
 
 
   return (
-    <div className="App">
-      
-      <Signup />
-      <Upload />
-      <GetVids />
-      <ContactForm/>
-    
-    </div>
-    
+    <Router>
+      <div className="App">
+        <h1>Sign-Language-Learning-App</h1>
+        <Routes>
+        <Route path='/' element={<SignOrLogin />} />
+        <Route path='/videos/upload' element={<Upload />} />     
+        <Route path='/videos' element={<GetVids />} />
+        <Route path='/contact' element={<ContactForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

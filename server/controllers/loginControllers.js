@@ -24,7 +24,7 @@ export const userSignup = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ msg: `${req.body.firstName} logged in!` });
+    res.status(200).json({ msg: `${req.body.firstName} signed up!` });
 
   } catch (error) {
     res.status(500).send(error);
@@ -49,7 +49,7 @@ export const userLogin = async (req, res) => {
     }
 
    
-    res.status(200).json({ msg: `${req.body.firstName} logged in!` });
+    res.status(200).json({ msg: `${req.body.email} logged in!` });
 
   } catch (error) { res.status(500).send(error); }
 };
