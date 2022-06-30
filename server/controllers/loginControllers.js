@@ -49,7 +49,8 @@ export const userLogin = async (req, res) => {
     }
 
    
-    res.status(200).json({ msg: `${req.body.email} logged in!` });
+    res.status(200).json({ msg: `${req.body.email} logged in!` ,
+                           auth: true});
 
   } catch (error) { res.status(500).send(error); }
 };
