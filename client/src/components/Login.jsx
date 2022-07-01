@@ -1,10 +1,6 @@
-import { useContext } from "react";
-import MyContext from "../context/MyContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
-    const {setAuth} = useContext(MyContext);
 
     const navigate = useNavigate();
 
@@ -22,7 +18,9 @@ const Login = () => {
 
         fetch('http://localhost:5000/login',options)
         .then(res=>res.json())
-        .then(json=>{console.log(json); setAuth(json.auth); navigate('/videos')})
+        .then(json=>{console.log(json);  
+                    localStorage.setItem("SignAppToken",json.token);
+                    navigate('/videos');})
         .catch(console.log);
     }
 

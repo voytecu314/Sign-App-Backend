@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import MyContext from './MyContext'
+import { useState } from 'react';
+import MyContext from './MyContext';
 
 export const MyProvider = ( {children} ) => {
 

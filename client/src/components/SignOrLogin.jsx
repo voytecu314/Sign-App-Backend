@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
 
@@ -13,6 +14,8 @@ const SignOrLogin = () => {
   return (<>
     <button onClick={toggleLogin}>Login</button> OR <button onClick={toggleLogin}>Signup</button>
     {login ? login==='Login'?<Login />:<Signup /> : null}
+    <br /><br /><br />
+    <Link to='/videos'><h2>Go to videos</h2></Link>
   </>)
 }
 
