@@ -24,7 +24,7 @@ const Upload = () => {
       }
 
   return (<>
-    <h3>Please insert an video</h3>
+    <h3>Please insert a video</h3>
       <FileBase64 
          multiple={false}
          onDone={({ base64 }) => {
@@ -33,8 +33,7 @@ const Upload = () => {
       />
     <input type="text" name="fileName" />
     <button onClick={uploadVid}>Upload to DB</button>
-    <h5>Problems?</h5>
-    <button onClick={()=>navigate('contact')}>Contact us</button>
+    
   </>)
 }
 

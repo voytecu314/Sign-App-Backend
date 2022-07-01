@@ -7,7 +7,7 @@ import NotAuthorized from './NotAuthorized';
 const Auth = () => {
 
 const {auth, setAuth} = useContext(MyContext);
-console.log('Auth effect:',auth);
+console.log('Auth:',auth);
 useEffect(()=>{
     
     if(localStorage.getItem('SignAppToken')) {
@@ -22,10 +22,10 @@ useEffect(()=>{
 
         fetch('http://localhost:5000/auth', fetchOptions)
         .then(res=>res.json())
-        .then(payload=>{console.log('localStorage token',payload.auth);setAuth(payload.auth)})
+        .then(payload=>{console.log(payload);setAuth(payload.auth)})
         .catch(console.log);
       } 
-      else {console.log('No local storage'); setAuth(false)}
+      else {console.log('No token in local storage'); setAuth(false)}
 });
 
   return auth ? <Outlet /> : <NotAuthorized />;

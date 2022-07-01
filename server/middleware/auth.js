@@ -12,7 +12,7 @@ const auth = (req, res, next) => {
         next();
       } catch (error) {
         console.log('EE',error);
-        res.status(500).send("Invalid Token!");
+        res.status(500).json({token: error.message, auth:false});
       }
 }
 
