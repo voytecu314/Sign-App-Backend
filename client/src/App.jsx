@@ -7,6 +7,7 @@ import Upload from './components/Upload';
 import GetVids from './components/GetVids';
 import ContactForm from './components/ContactForm';
 import Auth from './components/Auth';
+import About from './components/About';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/videos/upload' element={<Upload />} />     
           <Route path='/videos' element={<GetVids />} />
         </Route>  
+        <Route path='/about' element={<About />} />
         <Route path='/contact' element={<ContactForm />} />
         </Routes>
         <br />
