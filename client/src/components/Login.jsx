@@ -25,10 +25,15 @@ const Login = () => {
     }
 
   return (
-    <div>Login
-        <input type="email" />
-        <input type="password" />
-        <button onClick={login}>LOGIN</button>
+    <div>
+      <h2>Login</h2>
+      
+        <input id="middle" type="email" placeholder="Email"/>
+        <br />
+        <input id="middle" type="password" placeholder="Password"/>
+        <br />
+        <br />
+        <button onClick={login}>CLICK</button>
     </div>
   )
 }
