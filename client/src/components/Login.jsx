@@ -25,14 +25,9 @@ const Login = () => {
     }
 
   return (
-    <div>
-      <h2>Login</h2>
-      
-        <input id="middle" type="email" placeholder="Email"/>
-        <br />
-        <input id="middle" type="password" placeholder="Password"/>
-        <br />
-        <br />
+    <div>Login
+        <input type="email" placeholder="Email"/>
+        <input type="password" placeholder="Password"/>
         <button onClick={login}>CLICK</button>
     </div>
   )
